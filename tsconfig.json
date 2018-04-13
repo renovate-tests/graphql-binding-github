@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "moduleResolution": "node",
-    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
     "sourceMap": true,
-    "noUnusedLocals": true,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "lib": [
-      "esnext.asynciterable", "es2016", "dom"
-    ]
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "target": "es5",
+    "rootDir": "src",
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist", "example"]
+  "exclude": ["node_modules", "dist"]
 }

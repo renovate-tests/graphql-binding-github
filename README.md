@@ -52,3 +52,39 @@ Simply follow [this guide](https://developer.github.com/v4/guides/forming-calls/
 ## Resources
 
 * Github GraphQL Explorer: https://developer.github.com/v4/explorer/
+
+## Codegen
+
+In order to generate new types, make sure that the env var `GH_AUTH_TOKEN` is set.
+If that is the case, just execute `yarn codegen`, which uses the new `graphql codegen` command of the GraphQL CLI.
+
+That command looks into the `.graphqlconfig.yml` file and tries to find an extension called `codegen`.
+As you can see in the `.graphqlconfig.yml`, our codegen config looks like this:
+
+```yaml
+    extensions:
+      codegen:
+        generator: graphql-codegen-binding
+        language: typescript
+        target: src/generated-binding.ts
+```
+
+`*generator*`: This is the generator package, used to generate the code. At the time of writing there are 2 generators: [`graphql-codegen-binding`](https://github.com/graphql-binding/graphql-codegen-binding) and [`graphql-codegen-prisma-binding`](https://github.com/graphcool/prisma-binding/tree/beta/packages/graphql-codegen-prisma-binding).
+
+`*language*`: The language you want to generate code for. Currently available: `typescript`, `javascript`
+`*target*`: The target file path where you want the binding to be generated to.
+
+## Make package consumable
+
+There are 2 things needed to be able to use this package:
+
+1.  The `GithubBinding` class
+2.  The `schema.graphql`
+
+When executing the `yarn build` command, both the binding is generated and the schema fecthed.
+
+If you want to reuse types of this packages, simply import them like this:
+
+```
+const schema = require('graphql-binding-github/schema.graphql`)
+```
