@@ -69,10 +69,11 @@ As you can see in the `.graphqlconfig.yml`, our codegen config looks like this:
         target: src/generated-binding.ts
 ```
 
-`*generator*`: This is the generator package, used to generate the code. At the time of writing there are 2 generators: [`graphql-codegen-binding`](https://github.com/graphql-binding/graphql-codegen-binding) and [`graphql-codegen-prisma-binding`](https://github.com/graphcool/prisma-binding/tree/beta/packages/graphql-codegen-prisma-binding).
+`generator`: This is the generator package, used to generate the code. At the time of writing there are 2 generators: [`graphql-codegen-binding`](https://github.com/graphql-binding/graphql-codegen-binding) and [`graphql-codegen-prisma-binding`](https://github.com/graphcool/prisma-binding/tree/beta/packages/graphql-codegen-prisma-binding).
 
-`*language*`: The language you want to generate code for. Currently available: `typescript`, `javascript`
-`*target*`: The target file path where you want the binding to be generated to.
+`language`: The language you want to generate code for. Currently available: `typescript`, `javascript`
+
+`target`: The target file path where you want the binding to be generated to.
 
 ## Make package consumable
 
